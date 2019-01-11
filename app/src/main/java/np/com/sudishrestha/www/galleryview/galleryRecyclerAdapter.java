@@ -12,12 +12,13 @@ import android.widget.TextView;
 import java.util.List;
 
 
-public class galleryRecyclerAdapter extends RecyclerView.Adapter<galleryRecyclerAdapter.GroceryViewHolder>{
+public class galleryRecyclerAdapter extends RecyclerView.Adapter<galleryRecyclerAdapter.GroceryViewHolder> {
     private List<Gallery> horizontalGrocderyList;
     Context context;
     Boolean dataType = true;
-    public galleryRecyclerAdapter(List<Gallery> horizontalGrocderyList, Context context, Boolean type){
-        this.horizontalGrocderyList= horizontalGrocderyList;
+
+    public galleryRecyclerAdapter(List<Gallery> horizontalGrocderyList, Context context, Boolean type) {
+        this.horizontalGrocderyList = horizontalGrocderyList;
         this.dataType = type;
         this.context = context;
     }
@@ -48,9 +49,9 @@ public class galleryRecyclerAdapter extends RecyclerView.Adapter<galleryRecycler
             public void onClick(View v) {
                 Intent intent = new Intent(context, GalleryActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("position", position+"");
+                intent.putExtra("position", position + "");
                 context.startActivity(intent);
-    }
+            }
         });
     }
 
@@ -62,10 +63,11 @@ public class galleryRecyclerAdapter extends RecyclerView.Adapter<galleryRecycler
     public class GroceryViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView txtview;
+
         public GroceryViewHolder(View view) {
             super(view);
-            imageView=view.findViewById(R.id.idProductImage);
-            txtview=view.findViewById(R.id.idProductName);
+            imageView = view.findViewById(R.id.idProductImage);
+            txtview = view.findViewById(R.id.idProductName);
 
 
         }

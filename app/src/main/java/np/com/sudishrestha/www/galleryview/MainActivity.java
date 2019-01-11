@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Gallery> galleryList = new ArrayList<>();
     private RecyclerView mRecycleView;
     private galleryRecyclerAdapter recycleAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,17 +33,17 @@ public class MainActivity extends AppCompatActivity {
         populategroceryList();
     }
 
-    private void populategroceryList(){
+    private void populategroceryList() {
         Gallery one = new Gallery("one", R.drawable.one);
-        Gallery two= new Gallery("two", R.drawable.two);
-        Gallery three= new Gallery("three", R.drawable.three);
-        Gallery four= new Gallery("four", R.drawable.four);
+        Gallery two = new Gallery("two", R.drawable.two);
+        Gallery three = new Gallery("three", R.drawable.three);
+        Gallery four = new Gallery("four", R.drawable.four);
         Gallery five = new Gallery("five", R.drawable.five);
-        Gallery six= new Gallery("six", R.drawable.six);
-        Gallery seven= new Gallery("seven", R.drawable.seven);
+        Gallery six = new Gallery("six", R.drawable.six);
+        Gallery seven = new Gallery("seven", R.drawable.seven);
         Gallery eight = new Gallery("five", R.drawable.eight);
-        Gallery nine= new Gallery("six", R.drawable.nine);
-        Gallery ten= new Gallery("seven", R.drawable.ten);
+        Gallery nine = new Gallery("six", R.drawable.nine);
+        Gallery ten = new Gallery("seven", R.drawable.ten);
 
 
         galleryList.add(one);

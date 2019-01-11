@@ -1,4 +1,5 @@
 package np.com.sudishrestha.www.galleryview;
+
 public class Gallery {
     public int Image;
     public String Name;
@@ -7,6 +8,7 @@ public class Gallery {
         this.Image = Image;
         this.Name = Name;
     }
+
     public int getImage() {
         return Image;
     }

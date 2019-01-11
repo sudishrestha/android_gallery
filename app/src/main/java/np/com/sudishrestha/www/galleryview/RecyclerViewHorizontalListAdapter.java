@@ -25,6 +25,7 @@ public class RecyclerViewHorizontalListAdapter extends RecyclerView.Adapter<Recy
     Boolean dataType = true;
     RecyclerView recyclerView1, recyclerView2;
     Activity myActivity;
+
     public RecyclerViewHorizontalListAdapter(List<Gallery> horizontalGrocderyList, Context context, Boolean type, RecyclerView rv1, RecyclerView rv2, Activity parentActivity) {
         this.horizontalGrocderyList = horizontalGrocderyList;
         this.dataType = type;
@@ -33,6 +34,7 @@ public class RecyclerViewHorizontalListAdapter extends RecyclerView.Adapter<Recy
         this.recyclerView2 = rv2;
         this.myActivity = parentActivity;
     }
+
     @Override
     public GroceryViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View groceryProductView;
@@ -44,6 +46,7 @@ public class RecyclerViewHorizontalListAdapter extends RecyclerView.Adapter<Recy
         GroceryViewHolder gvh = new GroceryViewHolder(groceryProductView);
         return gvh;
     }
+
     @Override
     public void onBindViewHolder(GroceryViewHolder holder, final int position) {
         holder.imageView.setImageResource(horizontalGrocderyList.get(position).getImage());
@@ -84,7 +87,7 @@ public class RecyclerViewHorizontalListAdapter extends RecyclerView.Adapter<Recy
                         .setMessage("Are you sure you want to download the image?")
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                Toast.makeText(myActivity, " picture downloading of Resource id" + horizontalGrocderyList.get(position).getImage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(myActivity, " Download function here", Toast.LENGTH_SHORT).show();
                             }
                         })
                         .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
@@ -99,10 +102,12 @@ public class RecyclerViewHorizontalListAdapter extends RecyclerView.Adapter<Recy
         });
 
     }
+
     @Override
     public int getItemCount() {
         return horizontalGrocderyList.size();
     }
+
     public class GroceryViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView txtview;

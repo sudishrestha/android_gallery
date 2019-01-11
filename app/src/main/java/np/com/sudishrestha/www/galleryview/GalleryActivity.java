@@ -22,26 +22,27 @@ public class GalleryActivity extends AppCompatActivity {
     private List<Gallery> galleryListThumb = new ArrayList<>();
     private RecyclerView mRecyclerViewThumb;
     private RecyclerViewHorizontalListAdapter galleryAdapterThumb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
         mRecyclerView = findViewById(R.id.idRecyclerViewHorizontalList);
         mRecyclerViewThumb = findViewById(R.id.idRecyclerViewHorizontalList1);
-        String position= getIntent().getStringExtra("position");
+        String position = getIntent().getStringExtra("position");
         int defaultPosition = Integer.parseInt(position);
         editor = getSharedPreferences("gallery_position", MODE_PRIVATE).edit();
         editor.putInt("position", defaultPosition);
         editor.apply();
 
-        galleryAdapter = new RecyclerViewHorizontalListAdapter(galleryList, getApplicationContext(), true,mRecyclerView,mRecyclerViewThumb,GalleryActivity.this);
+        galleryAdapter = new RecyclerViewHorizontalListAdapter(galleryList, getApplicationContext(), true, mRecyclerView, mRecyclerViewThumb, GalleryActivity.this);
         LinearLayoutManager horizontalLayoutManager = new LinearLayoutManager(GalleryActivity.this, LinearLayoutManager.HORIZONTAL, false);
         SnapHelper snapHelper = new PagerSnapHelper();
         mRecyclerView.setLayoutManager(horizontalLayoutManager);
         snapHelper.attachToRecyclerView(mRecyclerView);
         mRecyclerView.setAdapter(galleryAdapter);
 
-        galleryAdapterThumb = new RecyclerViewHorizontalListAdapter(galleryListThumb, getApplicationContext(), false,mRecyclerView,mRecyclerViewThumb,GalleryActivity.this);
+        galleryAdapterThumb = new RecyclerViewHorizontalListAdapter(galleryListThumb, getApplicationContext(), false, mRecyclerView, mRecyclerViewThumb, GalleryActivity.this);
         LinearLayoutManager horizontalLayoutManager1 = new LinearLayoutManager(GalleryActivity.this, LinearLayoutManager.HORIZONTAL, false);
         mRecyclerViewThumb.setLayoutManager(horizontalLayoutManager1);
         mRecyclerViewThumb.setAdapter(galleryAdapterThumb);
@@ -54,12 +55,12 @@ public class GalleryActivity extends AppCompatActivity {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-                if (newState == RecyclerView.SCROLL_STATE_IDLE){
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
                     int position = getCurrentItem(mRecyclerView);
-                   editor = getSharedPreferences("gallery_position", MODE_PRIVATE).edit();
+                    editor = getSharedPreferences("gallery_position", MODE_PRIVATE).edit();
                     editor.putInt("position", position);
                     editor.apply();
-                    Log.e("Current Position is " , position+"" );
+                    Log.e("Current Position is ", position + "");
                     galleryAdapterThumb.notifyDataSetChanged();
                 }
             }
@@ -68,21 +69,22 @@ public class GalleryActivity extends AppCompatActivity {
 
     }
 
-    private int getCurrentItem(RecyclerView mRecyclerView){
-        return ((LinearLayoutManager)mRecyclerView.getLayoutManager())
+    private int getCurrentItem(RecyclerView mRecyclerView) {
+        return ((LinearLayoutManager) mRecyclerView.getLayoutManager())
                 .findFirstVisibleItemPosition();
     }
-    private void populategroceryList(){
+
+    private void populategroceryList() {
         Gallery one = new Gallery("one", R.drawable.one);
-        Gallery two= new Gallery("two", R.drawable.two);
-        Gallery three= new Gallery("three", R.drawable.three);
-        Gallery four= new Gallery("four", R.drawable.four);
+        Gallery two = new Gallery("two", R.drawable.two);
+        Gallery three = new Gallery("three", R.drawable.three);
+        Gallery four = new Gallery("four", R.drawable.four);
         Gallery five = new Gallery("five", R.drawable.five);
-        Gallery six= new Gallery("six", R.drawable.six);
-        Gallery seven= new Gallery("seven", R.drawable.seven);
+        Gallery six = new Gallery("six", R.drawable.six);
+        Gallery seven = new Gallery("seven", R.drawable.seven);
         Gallery eight = new Gallery("five", R.drawable.eight);
-        Gallery nine= new Gallery("six", R.drawable.nine);
-        Gallery ten= new Gallery("seven", R.drawable.ten);
+        Gallery nine = new Gallery("six", R.drawable.nine);
+        Gallery ten = new Gallery("seven", R.drawable.ten);
 
         galleryList.add(one);
         galleryList.add(two);
