@@ -36,6 +36,7 @@ public class galleryRecyclerAdapter extends RecyclerView.Adapter<galleryRecycler
     public void onBindViewHolder(GroceryViewHolder holder, final int position) {
         holder.imageView.setImageResource(horizontalGrocderyList.get(position).getImage());
         holder.txtview.setText(horizontalGrocderyList.get(position).getName());
+        holder.txtview.setVisibility(View.VISIBLE);
 
         holder.imageView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override

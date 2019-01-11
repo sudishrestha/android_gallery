@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         mRecycleView = findViewById(R.id.idRecyclerViewHorizontalList2);
         recycleAdapter = new galleryRecyclerAdapter(galleryList, getApplicationContext(), true);
-        mRecycleView.setLayoutManager(new GridLayoutManager(this, 3));
+        mRecycleView.setLayoutManager(new GridLayoutManager(this, 2));
         mRecycleView.setAdapter(recycleAdapter);
         populategroceryList();
     }
